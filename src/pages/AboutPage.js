@@ -39,6 +39,7 @@ const AboutPage = () => {
                         </CardBody>
                     </Card>
                 </Col>
+                <Col>
                     <Card className='bg-light mt-3'>
                         <CardBody>
                             <blockquote className='blockquote'>
@@ -57,7 +58,7 @@ const AboutPage = () => {
                             </blockquote>
                         </CardBody>
                     </Card>
-                <Col>
+                
                 </Col>
             </Row>
             <Row className='row-content'>
