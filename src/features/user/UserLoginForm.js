@@ -9,7 +9,8 @@ import {
     Label,
     Button
 } from 'reactstrap';
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { validateUserLoginForm } from '../../utils/validateUserLoginForm';
 import defaultAvatar from '../../app/assets/img/unicorn.png';
 
 const UserLoginForm = () => {
@@ -24,6 +25,7 @@ const UserLoginForm = () => {
             username: values.username,
             password: values.password
         };
+        console.log(setCurrentUser);
         dispatch(setCurrentUser(currentUser));
         setLoginModalOpen(false);
     };
@@ -60,6 +62,7 @@ const UserLoginForm = () => {
                                 password: ''
                             }}
                             onSubmit={handleLogin}
+                            validate={validateUserLoginForm}
                         >
                             <Form>
                                 <FormGroup>
@@ -70,8 +73,11 @@ const UserLoginForm = () => {
                                         id='username' 
                                         name='username' 
                                         placeholder='Username'
-                                        calssName='form-control'
+                                        className='form-control'
                                     />
+                                    <ErrorMessage name='username'>
+                                    {(msg) => <p className='text-danger'>{msg}</p>}
+                                    </ErrorMessage>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label htmlFor= 'password'>
@@ -83,6 +89,9 @@ const UserLoginForm = () => {
                                         placeholder='Password' 
                                         calssName= 'form-control'
                                     />
+                                    <ErrorMessage name='password'>
+                                    {(msg) => <p className='text-danger'>{msg}</p>}
+                                    </ErrorMessage>
                                 </FormGroup>
                                 <Button type='submit' color='primary'>
                                     Login
