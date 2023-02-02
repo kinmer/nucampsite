@@ -87,7 +87,7 @@ const UserLoginForm = () => {
                                         id= 'password'
                                         name= 'password'
                                         placeholder='Password' 
-                                        calssName= 'form-control'
+                                        className= 'form-control'
                                     />
                                     <ErrorMessage name='password'>
                                     {(msg) => <p className='text-danger'>{msg}</p>}
