@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { fetchCampsites } from './features/campsites/campsitesSlice';
 import { fetchPartners } from './features/partners/partnersSlice';
 import { fetchPromotions } from './features/promotions/promotionsSlice';
+import { fetchComments } from './features/comments/commentsSlice';
 import { Routes, Route } from 'react-router-dom';
 import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
@@ -21,6 +22,7 @@ function App() {
         dispatch(fetchCampsites());
         dispatch(fetchPartners());
         dispatch(fetchPromotions());
+        dispatch(fetchComments());
     }, [dispatch]);
     return (
         <div className='App'>
